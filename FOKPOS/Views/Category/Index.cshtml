@@ -1,0 +1,88 @@
+﻿@model FOKPOS.Models.Category
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<div class="container-fluid">
+    <div class="card shadow-sm p-3">
+        <div>
+            <button class="btn btn-success float-right mr-3 mb-2" data-toggle="modal" data-target="#createModal">Create</button>
+        </div>
+
+        <table id="categoryTable" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Category Code</th>
+                    <th>Category Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Category 1</td>
+                    <td>
+                        <a><i class="fas fa-edit text-primary"></i></a>
+                        <a><i class="fas fa-trash-alt text-danger"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Category 2</td>
+                    <td>
+                        <a><i class="fas fa-edit text-primary"></i></a>
+                        <a><i class="fas fa-trash-alt text-danger"></i></a>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- Modal for Create -->
+
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Create Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your form or content for creating a category here -->
+                <form asp-action="Category">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="catId">Category Code</label>
+                        <input asp-for="catId" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="catName">Category Name</label>
+                        <input asp-for="catName" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    // Initialize DataTable
+    $(document).ready(function () {
+        $('#categoryTable').DataTable();
+    });
+</script>

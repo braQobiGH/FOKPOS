@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\BraQobi\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\BraQobi\\.nuget\\packages"
+    ]
+  }
+}
